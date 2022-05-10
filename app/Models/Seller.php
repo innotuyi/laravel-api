@@ -12,8 +12,10 @@ class Seller extends User
         'description',
     ];
 
-    public function products(){
-        return $this->hasMany(Product::class);
+ 
+    public function products()
+    {
+    	return $this->hasMany(Product::class);
     }
 
 

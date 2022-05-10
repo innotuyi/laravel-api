@@ -20,21 +20,23 @@ class Product extends Model
     ];
 
 
-    public function isAvailable(){
-        return $this->status==Product::AVAILABLE_PRODUCT;
+    public function isAvailable()
+    {
+    	return $this->status == Product::AVAILABLE_PRODUCT;
     }
 
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class);
+    }
 
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 
-     public function seller(){
-         return $this->hasOne(Seller::class);
-     }
-
-     public function transacton(){
-         return $this->hasMany(Transaction::class)
-     }
-    public function categories(){
-
-        return $this->hasMany(Category::class);
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }
