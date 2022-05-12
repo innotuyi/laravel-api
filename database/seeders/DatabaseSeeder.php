@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         User::truncate();
-       $usersQuantity = 200;
+       $usersQuantity = 1000;
        User::factory($usersQuantity)->create();
        DB::table('category_product')->truncate();
 

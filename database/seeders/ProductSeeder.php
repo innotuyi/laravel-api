@@ -22,10 +22,12 @@ class ProductSeeder extends Seeder
         $productsQuantity = 1000;
 
         Product::factory($productsQuantity)->create()->each(
-            function($product){
-                $categories =Category::all()->random(mt_rand(1, 15))->pluck('id');
-                $product->categories->attach($categories);
+            function ($product) {
+                $categories = Category::all()->random(mt_rand(1, 5))->pluck('id');
+                $product->categories()->attach($categories);
             }
+
+            
         );
         
     }
